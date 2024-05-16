@@ -1,6 +1,4 @@
-var humanScore = 0
-var computerScore = 0
-
+var rounds = 0
 
 function getComputerChoice(){
     let weapons = ["rock","paper","scissors"]
@@ -13,33 +11,51 @@ function getHumanChoice(){
     return CHOICE
 }
 
-function playRound(humanChoice, computerChoice){
-    var playerChoice = humanChoice.toLowerCase();
+
+function playGame(){
+    var humanScore = 0
+    var computerScore = 0
     
-    if(playerChoice == computerChoice){
-        console.log("You dare draw with me human, WE GO AGAIN!")
-        playerChoice = getHumanChoice().toLowerCase()
-        computerChoice = getComputerChoice()
-        playRound(playerChoice,computerChoice)
-    }else if(playerChoice == "rock" && computerChoice == "scissors"){
-        console.log("You win! "+playerChoice+" beats "+computerChoice)
-        humanScore++
-    }else if(playerChoice == "paper" && computerChoice == "rock"){
-        console.log("You win! "+playerChoice+" beats "+computerChoice)
-        humanScore++
-    }else if(playerChoice == "scissors" && computerChoice == "paper"){
-        console.log("You win! "+playerChoice+" beats "+computerChoice)
-        humanScore++
+    while(rounds < 5){
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice()
+        playRound(humanSelection, computerSelection)
+    }
+
+    function playRound(humanChoice, computerChoice){
+        var playerChoice = humanChoice.toLowerCase();
+        
+        if(playerChoice == computerChoice){
+            alert("You dare draw with me human, WE GO AGAIN!")
+            playerChoice = getHumanChoice().toLowerCase()
+            computerChoice = getComputerChoice()
+            playRound(playerChoice,computerChoice)
+        }else if(playerChoice == "rock" && computerChoice == "scissors"){
+            alert("You win! "+playerChoice+" beats "+computerChoice)
+            humanScore++
+            rounds++
+        }else if(playerChoice == "paper" && computerChoice == "rock"){
+            alert("You win! "+playerChoice+" beats "+computerChoice)
+            humanScore++
+            rounds++
+        }else if(playerChoice == "scissors" && computerChoice == "paper"){
+            alert("You win! "+playerChoice+" beats "+computerChoice)
+            humanScore++
+            rounds++
+        }else{
+            alert("You Lose! "+computerChoice+" beats "+playerChoice)
+            computerScore++;
+            rounds++
+        }
+    }
+    
+    if(humanScore>computerScore){
+        alert("You will not have the last laugh, challenge me again and I won't make it easy")
     }else{
-        console.log("You Lose! "+computerChoice+" beats "+"rock")
-        computerScore++;
+        alert("Computers will always be smarter, better luck next time ;)")
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice()
 
-playRound(humanSelection, computerSelection)
-
-console.log(humanScore, computerScore, computerSelection)
+playGame()
 
