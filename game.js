@@ -67,9 +67,15 @@ function playGame(){
     
     if(playerScore>computerScore){
         alert("You will not have the last laugh, challenge me again and I won't make it easy")
-        
     }else{
         alert("Computers will always be smarter, better luck next time ;)")
+    }
+
+    var replay = prompt("Do you want to play again").toLowerCase()
+
+    if(replay == "y" || replay == "yes"){
+        rounds = 0
+        playGame()
     }
 }
 
