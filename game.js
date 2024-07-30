@@ -30,15 +30,14 @@ function loseRoundMessage(playerChoice, computerChoice, playerScore, computerSco
 function playGame(){
     var playerScore = 0
     var computerScore = 0
+
+    const rockbtn = document.querySelector('#rock-btn');
+    const paperbtn = document.querySelector('#paper-btn');
+    const scissorsbtn = document.querySelector('#scissors-btn');
+
     
-    while(rounds < 5){
-        const humanSelection = getPlayerChoice();
-        const computerSelection = getComputerChoice()
-        playRound(humanSelection, computerSelection)
-    }
-
-
-
+    
+    
     function playRound(humanChoice, computerChoice){
         var playerChoice = humanChoice.toLowerCase();
         if(playerChoice == computerChoice){
