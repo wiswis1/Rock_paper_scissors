@@ -17,8 +17,19 @@ function getComputerChoice(){
     return  weapons[CHOICE]
 }
 
-function resetGame(){
-
+function resetGame(){  
+    if(playerScore>computerScore){
+        alert("You will not have the last laugh, challenge me again and I won't make it easy")
+    }else{
+        alert("Computers will always be smarter, better luck next time ;)")
+    }
+    
+    var replay = prompt("Do you want to play again?").toLowerCase()
+    if(replay == "yes" || replay == "y"){
+        rounds = 0
+        playerScore = 0
+        computerScore = 0
+    }
 }
 
 
@@ -45,19 +56,7 @@ function getPlayerChoice(){
         }
         console.log(event.target)
         if(rounds ==5){
-            
-            if(playerScore>computerScore){
-                alert("You will not have the last laugh, challenge me again and I won't make it easy")
-            }else{
-                alert("Computers will always be smarter, better luck next time ;)")
-            }
-            
-            var replay = prompt("Do you want to play again?").toLowerCase()
-            if(replay == "yes" || replay == "y"){
-                rounds = 0
-                playerScore = 0
-                computerScore = 0
-            }
+            resetGame()
         }    
     }
 
