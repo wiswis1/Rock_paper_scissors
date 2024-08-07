@@ -17,7 +17,7 @@ function getComputerChoice(){
     return  weapons[CHOICE]
 }
 
-function resetGame(){  
+function replayGame(){  
     if(playerScore>computerScore){
         alert("You will not have the last laugh, challenge me again and I won't make it easy")
     }else{
@@ -56,7 +56,7 @@ function getPlayerChoice(){
         }
         console.log(event.target)
         if(rounds ==5){
-            resetGame()
+            replayGame()
         }    
     }
 
