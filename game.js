@@ -17,40 +17,54 @@ function getComputerChoice(){
     return  weapons[CHOICE]
 }
 
-function getPlayerChoice(){
-    // if(rounds==5){
-    //     var replay = prompt("Do you want to play again").toLowerCase();
-    // }
+function resetGame(){
 
-
-    var playerChoice;
-
-    var rockBtn = document.querySelector("#rockBtn");
-    var paperBtn = document.querySelector('#paperBtn');
-    var scissorsBtn = document.querySelector('#scissorsBtn');
-
-
-    rockBtn.addEventListener("click", () => {
-        playerChoice = 'rock';
-        playRound(playerChoice, getComputerChoice());
-    })
-
-    paperBtn.addEventListener("click", ()=> {
-        playerChoice = 'paper';
-        playRound(playerChoice, getComputerChoice());
-    })  
-    
-    scissorsBtn.addEventListener("click", ()=> {
-        playerChoice = 'scissors';
-        playRound(playerChoice, getComputerChoice());
-    })
-
-
-    console.log("i see you")
 }
 
 
+function getPlayerChoice(){
+    var playerChoice;
+    const buttons = document.querySelectorAll("button");
 
+    function playerChoice(event){
+        switch(event.target.id){
+            case "rockBtn":
+                playerChoice = 'rock';
+                playRound(playerChoice, getComputerChoice());
+                break;
+            case "paperBtn":
+                playerChoice = 'paper';
+                playRound(playerChoice, getComputerChoice());
+                break;
+            case "scissorsBtn":
+                playerChoice = 'scissors';
+                playRound(playerChoice, getComputerChoice());
+                break;
+            default:
+                break;
+        }
+        console.log(event.target)
+        if(rounds ==5){
+            
+            if(playerScore>computerScore){
+                alert("You will not have the last laugh, challenge me again and I won't make it easy")
+            }else{
+                alert("Computers will always be smarter, better luck next time ;)")
+            }
+            
+            var replay = prompt("Do you want to play again?").toLowerCase()
+            if(replay == "yes" || replay == "y"){
+                rounds = 0
+                playerScore = 0
+                computerScore = 0
+            }
+        }    
+    }
+
+    buttons.forEach((button) => {
+        button.addEventListener("click",playerChoice)
+    });
+}
 
 
 function playRound(playerChoice, computerChoice){
@@ -78,12 +92,6 @@ function playRound(playerChoice, computerChoice){
 
 function playGame(){
     getPlayerChoice();
-
-    console.log("i see you at "+ rounds)
-    // if(replay == "y" || replay == "yes"){
-    //     rounds = 0
-    //     playGame()
-    // }
 }
 
 
