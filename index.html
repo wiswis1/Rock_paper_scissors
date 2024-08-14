@@ -1,16 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
     <title>Rock Paper Scissors</title>
 </head>
+
 <body>
     <script src="game.js" defer></script>
-    
-    <button id="rockBtn">Rock</button>
-    <button id="paperBtn">Paper</button>
-    <button id="scissorsBtn">Scissors</button>
+
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+
+    <main>
+        <div class="announcement">
+            <h2>MAKE YOUR CHOICE</h2>
+            <h3>Best of 3</h3>
+        </div>
+        <div class="choiceBox">
+            <div class="card">
+                <button id="rockBtn">🪨</button>
+            </div>
+            <div class="card">
+                <button id="paperBtn">📜</button>
+            </div>
+            <div class="card">
+                <button id="scissorsBtn">✂ </button>
+            </div>
+        </div>
+
+        <div class=scoreboard>
+            <div class="score">
+                <p id="playerScore">Player: 0</p>
+            </div>
+
+            <div class="score">
+                <p id="computerScore">Computer: 0</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p class=footer>Copyright © <script>document.write(new Date().getFullYear())</script> Made by Wisdom</p>
+    </footer>
+
 
 </body>
+
 </html>
