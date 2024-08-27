@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="icon" type="image/x-icon" href="/icon/rock-paper-scissors.png">
-    <title>Rock Paper Scissors</title>
+    <script src="https://kit.fontawesome.com/1c7d73271d.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -17,7 +19,7 @@
     </header>
     <main>
         <div class="announcement">
-            <h2 class="result">MAKE YOUR CHOICE</h2>
+            <h2 class="round">MAKE YOUR CHOICE</h2>
         </div>
         <div class="choiceBox">
             <div class="card">
@@ -41,17 +43,22 @@
             </div>
         </div>
 
-        <!-- <div class="endGame">
-            <h1 class = "endGameMessage"></h1>
-                <div class ="choices">
-                    <button class="restartButton"></button>
-                </div>
-        </div> -->
+        <section class = "modal hidden">
+            <h3 class = "result">You win</h3>
+            <button class ="restartBtn">Play Again?</button>
+        </section>
+        <div class ="overlay hidden"></div>
     </main>
 
     <footer>
         <p class=footer>Copyright ©
-            <script>document.write(new Date().getFullYear())</script> Made by Wisdom
+            <script>
+                document.write(new Date().getFullYear()) 
+                </script>
+                wiswis1
+                <a href="https://github.com/wiswis1" target="_blank">
+                    <i class="fa-brands fa-github" color: white></i>
+                </a>
         </p>
     </footer>
 
